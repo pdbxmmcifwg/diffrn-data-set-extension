@@ -1,0 +1,334 @@
+## File: draft-diffrn-data-set-example-20161005.cif
+## Date: 5-Oct-2016
+## Updated: 23-Dec-2016 after working group conference call 21-Dec-2016
+##
+## Example reflection data file following PDBx/mmCIF Deposition Working
+## proposal from Sep 19, 2016 Cambridge meeting.
+##
+## One merged example set, two parent unmerged data sets (w/o real data),
+## and one data section that would be included by the PDB archive.
+##
+## Updated after Dec 21, 2016 conference call
+##
+## Updated after July 17, 2017 Working Group Workshop discussion
+##
+data_DIFFRN-PDB_00001ABC
+#
+#  This first data section would be added and maintained by the PDB -
+
+#  Accession details
+_entry.id       'pdb_00001abc'
+#
+#  Map diffraction id's in the model coordinate file to data sections -
+loop_
+_pdbx_diffrn_data_section_correspondence.diffrn_id
+_pdbx_diffrn_data_section_correspondence.data_section_id
+1 'ds-merged-1'
+
+#
+loop_
+_pdbx_diffrn_data_section_contents.data_section_id
+_pdbx_diffrn_data_section_contents.content_type
+'ds-merged-1'   'X-ray structure factor amplitudes'
+'ds-merged-1'   'X-ray calculated amplitudes'
+'ds-merged-1'   'X-ray calculated phases'
+'ds-unmerged-1' 'X-ray unmerged intensities'
+'ds-unmerged-2' 'X-ray unmerged intensities'
+
+#
+#  Some audit details -
+loop_
+_pdbx_data_section_audit.data_section_id
+_pdbx_data_section_audit.date
+_pdbx_data_section_audit.version
+_pdbx_data_section_audit.action_type
+ 'DIFFRN-PDB_00001ABC'  2016-10-01  1.0  'Initial release'
+
+##
+# -----------------------------------------------------------------------------------------------
+##
+data_ds-merged-1
+#
+#      Merged data section --  data_<data_section_id>  where data_section_id = 'ds-merged-1'
+#
+_pdbx_diffrn_data_section.id              'ds-merged-1'
+_pdbx_diffrn_data_section.type_scattering 'x-ray'
+_pdbx_diffrn_data_section.type_merged     'true'
+_pdbx_diffrn_data_section.type_scaled     'true'
+_pdbx_diffrn_data_section.details         'Optional details describing this example diffraction data section'
+
+#
+# Index of parent data sets contributing to this data section -
+#
+loop_
+_pdbx_diffrn_data_section_index.data_section_id
+_pdbx_diffrn_data_section_index.parent_data_section_id
+'ds-merged-1'  'ds-unmerged-1'
+'ds-merged-1'  'ds-unmerged-2'
+
+#
+#  Cell constants
+#
+_pdbx_diffrn_merged_cell.data_section_id   'ds-merged-1'
+_pdbx_diffrn_merged_cell.cell_length_a      51.3940
+_pdbx_diffrn_merged_cell.cell_length_b      109.0130
+_pdbx_diffrn_merged_cell.cell_length_c      137.3070
+_pdbx_diffrn_merged_cell.cell_angle_alpha   90.0000
+_pdbx_diffrn_merged_cell.cell_angle_beta    90.0000
+_pdbx_diffrn_merged_cell.cell_angle_gamma   90.0000
+
+#
+#  Space group assignment
+_pdbx_diffrn_symmetry.data_section_id         'ds-merged-1'
+_pdbx_diffrn_symmetry.space_group_name_H-M   'P 21 21 21'
+#
+#
+loop_
+_pdbx_diffrn_merge_wavelength_list.id
+_pdbx_diffrn_merge_wavelength_list.wavelength
+1  0.91837
+
+#
+# Statistics for the merged data set -
+#
+_pdbx_diffrn_merge_stat.data_section_id               'ds-merged-1'
+_pdbx_diffrn_merge_stat.d_resolution_high              1.32
+_pdbx_diffrn_merge_stat.d_resolution_low               150.0
+_pdbx_diffrn_merge_stat.number_obs                     300000
+_pdbx_diffrn_merge_stat.number_all                     308123
+_pdbx_diffrn_merge_stat.mean_I_over_sigI_all           10.7
+_pdbx_diffrn_merge_stat.Rmerge_all                     0.069
+_pdbx_diffrn_merge_stat.Rpim_I_all                     0.033
+_pdbx_diffrn_merge_stat.CC_half_all                    0.999
+_pdbx_diffrn_merge_stat.percent_possible_obs           98.2
+
+#  Merged reflection list -
+#
+# loop _
+# <reflection id> <h-asu> <k-asu> <l-asu>  <r_free_flag>  ...
+#
+#  with
+#            <I> <sigI> <<<   F_meas_au, F_meas_sigma_au
+#            <F> <sigF> <<<   I_meas_au, I_meas_sigma_au
+#
+loop_
+_pdbx_diffrn_merged_refln.reflection_id
+_pdbx_diffrn_merged_refln.index_h
+_pdbx_diffrn_merged_refln.index_k
+_pdbx_diffrn_merged_refln.index_l
+_pdbx_diffrn_merged_refln.F_meas_au
+_pdbx_diffrn_merged_refln.F_meas_sigma_au
+_pdbx_diffrn_merged_refln.F_calc_au
+_pdbx_diffrn_merged_refln.phase_calc
+_pdbx_diffrn_merged_refln.R_free_flag
+1    0    0    8   918.100   7.0000  2128.50   0.0000   1
+2    0    0   10   450.700   5.3000  787.600  180.000   1
+3    0    0   12   875.000   7.1000  851.000  180.000   10
+4    0    0   14   628.700   6.4000  468.400  180.000   10
+5    0    0   18   492.000   7.3000  565.200  180.000   5
+# ... abbreviated ...
+
+##
+#
+#   Merged data set - crystals contributing to this merged data set -
+#
+loop_
+_pdbx_diffrn_merge_crystal_list.data_section_id
+_pdbx_diffrn_merge_crystal_list.crystal_id
+'ds-unmerged-1'  1
+'ds-unmerged-2'  2
+
+#
+#
+#  Merged data set - image and crystal mapping list -
+#
+loop_
+_pdbx_diffrn_merge_image_list.data_section_id
+_pdbx_diffrn_merge_image_list.crystal_id
+_pdbx_diffrn_merge_image_list.image_id_begin
+_pdbx_diffrn_merge_image_list.image_id_end
+'ds-unmerged-1'  1  1   2
+'ds-unmerged-2'  2  1   5
+# .....  abbreviated .....
+
+#
+#  Merged data set - rejected reflection list
+loop_
+_pdbx_diffrn_merge_rejected_list.data_section_id
+_pdbx_diffrn_merge_rejected_list.reflection_id
+_pdbx_diffrn_merge_rejected_list.image_id
+_pdbx_diffrn_merge_rejected_list.details
+'ds-unmerged-1'  1  1 'intensity outlier'
+'ds-unmerged-1'  2  1 'intensity outlier'
+'ds-unmerged-2'  5  2 'intensity outlier'
+# .....  abbreviated .....
+
+##
+data_ds-unmerged-1
+#
+#      Unmerged data section #1 --  data_<data_section_id>  where data_section_id = 'ds-unmerged-1'
+#
+_pdbx_diffrn_data_section.id              'ds-unmerged-1'
+_pdbx_diffrn_data_section.type_scattering x-ray
+_pdbx_diffrn_data_section.type_merged     false
+_pdbx_diffrn_data_section.type_scaled     true
+_pdbx_diffrn_data_section.details 'Optional details describing this example diffraction data section'
+#
+#  Facility/beamline proposal tracking details
+#
+_pdbx_diffrn_data_section_experiment.ordinal         1
+_pdbx_diffrn_data_section_experiment.data_section_id 'ds-unmerged-1'
+_pdbx_diffrn_data_section_experiment.proposal_id     1234A
+#
+# Facility/beamline details for this data collection
+#
+_pdbx_diffrn_data_section_site.data_section_id  'ds-unmerged-1'
+_pdbx_diffrn_data_section_site.instrument       'APS 14-BM-C'
+_pdbx_diffrn_data_section_site.collection_date   2016-09-11
+_pdbx_diffrn_data_section_site.detector         'ADSC QUANTUM 315'
+_pdbx_diffrn_data_section_site.detector_type     CCD
+_pdbx_diffrn_data_section_site.radiation_source  synchrotron
+
+#
+# List of crystal samples in this data set
+#
+loop_
+_pdbx_diffrn_unmerged_cell.ordinal
+_pdbx_diffrn_unmerged_cell.crystal_id
+_pdbx_diffrn_unmerged_cell.wavelength
+_pdbx_diffrn_unmerged_cell.cell_length_a
+_pdbx_diffrn_unmerged_cell.cell_length_b
+_pdbx_diffrn_unmerged_cell.cell_length_c
+_pdbx_diffrn_unmerged_cell.cell_angle_alpha
+_pdbx_diffrn_unmerged_cell.cell_angle_beta
+_pdbx_diffrn_unmerged_cell.cell_angle_gamma
+_pdbx_diffrn_unmerged_cell.Bravais_lattice
+1 1 .91837  51.3940 109.0130 137.3070 90.000 90.000 90.000 oP
+# ...  abbreviated ...
+
+# Scans for this data set
+#
+ loop_
+_pdbx_diffrn_scan.scan_id
+_pdbx_diffrn_scan.crystal_id
+_pdbx_diffrn_scan.image_id_begin
+_pdbx_diffrn_scan.image_id_end
+_pdbx_diffrn_scan.scan_angle_begin
+_pdbx_diffrn_scan.scan_angle_end
+1  1  1   720  0.  360.
+# ... abbreviated ...
+
+#
+#  Unmerged intensity reflection list
+#
+# loop_
+#  <reflection id> <scan id> <image id start> <image id end> <h-original> <k-original> <l-original> <scan_angle> <partiality> <scale>
+#
+#   with
+#        <I> <sigI>                      <<<   intensity_meas, intensity_sigma
+#        <I-sum> <sigI-sum>              <<<   intensity_sum, intensity_sum_sigma
+#        <I-profile> <sigI-profile>      <<<   intensity_profile, intensity_profile_sigma
+#
+#
+loop_
+_pdbx_diffrn_unmerged_refln.reflection_id
+_pdbx_diffrn_unmerged_refln.scan_id
+_pdbx_diffrn_unmerged_refln.image_id_begin
+_pdbx_diffrn_unmerged_refln.image_id_end
+_pdbx_diffrn_unmerged_refln.index_h
+_pdbx_diffrn_unmerged_refln.index_k
+_pdbx_diffrn_unmerged_refln.index_l
+_pdbx_diffrn_unmerged_refln.intensity_sum_meas
+_pdbx_diffrn_unmerged_refln.intensity_sum_sigma
+_pdbx_diffrn_unmerged_refln.scan_angle_reflection
+_pdbx_diffrn_unmerged_refln.partiality
+_pdbx_diffrn_unmerged_refln.scale_value
+1  1 1  1    0    0    5     28.800  264.700  3.51 1.0 .92
+# ... abbreviated ...
+# -----------------------------------------------------------------------------------------------
+
+##
+##
+data_ds-unmerged-2
+#
+#      Unmerged data section #2 --  data_<data_section_id>  where data_section_id = 'ds-unmerged-2'
+#
+_pdbx_diffrn_data_section.id              'ds-unmerged-2'
+_pdbx_diffrn_data_section.type_scattering x-ray
+_pdbx_diffrn_data_section.type_merged     false
+_pdbx_diffrn_data_section.type_scaled     true
+_pdbx_diffrn_data_section.details 'Optional details describing this example diffraction data section'
+
+#
+#  Facility/beamline proposal tracking details
+#
+_pdbx_diffrn_data_section_experiment.ordinal         1
+_pdbx_diffrn_data_section_experiment.data_section_id 'ds-unmerged-2'
+_pdbx_diffrn_data_section_experiment.proposal_id     1234A
+#
+# Facility/beamline details for this data collection
+#
+_pdbx_diffrn_data_section_site.data_section_id  'ds-unmerged-2'
+_pdbx_diffrn_data_section_site.instrument       'APS 14-BM-C'
+_pdbx_diffrn_data_section_site.collection_date   2016-09-12
+_pdbx_diffrn_data_section_site.detector         'ADSC QUANTUM 315'
+_pdbx_diffrn_data_section_site.detector_type     CCD
+_pdbx_diffrn_data_section_site.radiation_source  synchrotron
+#
+# List of crystal samples in this data set
+#
+loop_
+_pdbx_diffrn_unmerged_cell.ordinal
+_pdbx_diffrn_unmerged_cell.crystal_id
+_pdbx_diffrn_unmerged_cell.wavelength
+_pdbx_diffrn_unmerged_cell.cell_length_a
+_pdbx_diffrn_unmerged_cell.cell_length_b
+_pdbx_diffrn_unmerged_cell.cell_length_c
+_pdbx_diffrn_unmerged_cell.cell_angle_alpha
+_pdbx_diffrn_unmerged_cell.cell_angle_beta
+_pdbx_diffrn_unmerged_cell.cell_angle_gamma
+_pdbx_diffrn_unmerged_cell.Bravais_lattice
+1 2 .91837  51.3940 109.0130 137.3070 90.000 90.000 90.000 oP
+# ...  abbreviated ...
+
+# Scans for this data set
+#
+ loop_
+_pdbx_diffrn_scan.scan_id
+_pdbx_diffrn_scan.crystal_id
+_pdbx_diffrn_scan.image_id_begin
+_pdbx_diffrn_scan.image_id_end
+_pdbx_diffrn_scan.scan_angle_begin
+_pdbx_diffrn_scan.scan_angle_end
+2  2  1   600  0.  360.
+# ... abbreviated ...
+
+
+#
+#  Unmerged intensity reflection list
+#
+# loop_
+#  <reflection id> <image id start> <image id end> <h-original> <k-original> <l-original>  <phi-reflection> <partiality>
+#
+#   with
+#        <I> <sigI>                      <<<   intensity_meas, intensity_sigma
+#        <I-sum> <sigI-sum>              <<<   intensity_sum, intensity_sum_sigma
+#        <I-profile> <sigI-profile>      <<<   intensity_profile, intensity_profile_sigma
+#
+loop_
+_pdbx_diffrn_unmerged_refln.reflection_id
+_pdbx_diffrn_unmerged_refln.scan_id
+_pdbx_diffrn_unmerged_refln.image_id_begin
+_pdbx_diffrn_unmerged_refln.image_id_end
+_pdbx_diffrn_unmerged_refln.index_h
+_pdbx_diffrn_unmerged_refln.index_k
+_pdbx_diffrn_unmerged_refln.index_l
+_pdbx_diffrn_unmerged_refln.intensity_meas
+_pdbx_diffrn_unmerged_refln.intensity_sigma
+_pdbx_diffrn_unmerged_refln.scan_angle_reflection
+_pdbx_diffrn_unmerged_refln.partiality
+_pdbx_diffrn_unmerged_refln.scale_value
+1  2 1  1    0    0    5     28.800  264.700  12.62 1.0 .85
+# ... abbreviated ...
+# -----------------------------------------------------------------------------------------------
+
