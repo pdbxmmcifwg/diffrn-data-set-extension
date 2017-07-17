@@ -331,12 +331,12 @@
      
       loop_
       _pdbx_diffrn_data_section_site.data_section_id
-      _pdbx_diffrn_data_section_site.facility
-      _pdbx_diffrn_data_section_site.beamline
+      _pdbx_diffrn_data_section_site.instrument
       _pdbx_diffrn_data_section_site.collection_date
       _pdbx_diffrn_data_section_site.detector
       _pdbx_diffrn_data_section_site.detector_type
-       'ds-unmerged-1' APS 14-BM-C 2016-09-11 'ADSC QUANTUM 315' CCD
+      _pdbx_diffrn_data_section_site.radiation_source
+       'ds-unmerged-1' APS 14-BM-C' 2016-09-11 'ADSC QUANTUM 315' CCD synchrotron
 ```
 
 
@@ -344,30 +344,14 @@
 
 | Attribute | Key | Required | Type | Units | Enumerated | Bounded |
 | --------- | --- | -------- | ---- | ----- | ---------- | ------- |
-| beamline | no | no | line | None | yes | no |
 | collection_date | no | no | yyyy-mm-dd:hh:mm-flex | None | no | no |
 | data_section_id | yes | yes | code | None | no | no |
 | detector | no | no | line | None | yes | no |
 | detector_type | no | no | line | None | yes | no |
-| facility | no | no | line | None | yes | no |
+| instrument | no | no | line | None | no | no |
+| radiation_source | no | no | line | None | no | no |
 
 ---
-
-#### _pdbx_diffrn_data_section_site.beamline
-
-
-      For a non-home source, the beamline or sector where data collection took place
-
-
-
----
-
-| Allowed Values | Detail |
-| -------------- | ------ |
-| 14-BM-C |   |
-| 14.1 |   |
-| X25 |   |
-
 
 #### _pdbx_diffrn_data_section_site.collection_date
 
@@ -413,195 +397,19 @@
 | PIXEL |   |
 
 
-#### _pdbx_diffrn_data_section_site.facility
+#### _pdbx_diffrn_data_section_site.instrument
 
 
-      If a non-home source is used for data collection, the facility housing the equipment
+      The name of instrument used for data collection including the facility, beamline
+      or apparatus name.
 
 
 
----
+#### _pdbx_diffrn_data_section_site.radiation_source
 
-| Allowed Values | Detail |
-| -------------- | ------ |
-| ALBA |   |
-| ALS |   |
-| APS |   |
-| AichiSR |   |
 
+       Detector type used for data collection
 
-## Category pdbx_diffrn_image_proc
-
-
-               Data items in the pdbx_diffrn_image_proc category record details of
-               image data processing transformations.
-
----
-
-
-```
-     
-         loop_
-         _pdbx_diffrn_image_proc.image_id
-         _pdbx_diffrn_image_proc.crystal_id
-         _pdbx_diffrn_image_proc.image_number
-         _pdbx_diffrn_image_proc.phi_value
-         _pdbx_diffrn_image_proc.wavelength
-         _pdbx_diffrn_image_proc.cell_length_a
-         _pdbx_diffrn_image_proc.cell_length_b
-         _pdbx_diffrn_image_proc.cell_length_c
-         _pdbx_diffrn_image_proc.cell_angle_alpha
-         _pdbx_diffrn_image_proc.cell_angle_beta
-         _pdbx_diffrn_image_proc.cell_angle_gamma
-         1  1  1  0.5000  0.91837  51.3940 109.0130 137.3070 90.000 90.000 90.000
-         1  2  1  0.6000  0.91837  51.3940 109.0130 137.3070 90.000 90.000 90.000
-         # ...  abbreviated ...
-     
-```
-
-
----
-
-| Attribute | Key | Required | Type | Units | Enumerated | Bounded |
-| --------- | --- | -------- | ---- | ----- | ---------- | ------- |
-| cell_angle_alpha | no | no | float | degrees | no | yes |
-| cell_angle_beta | no | no | float | degrees | no | yes |
-| cell_angle_gamma | no | no | float | degrees | no | yes |
-| cell_length_a | no | no | float | angstroms | no | yes |
-| cell_length_b | no | no | float | angstroms | no | yes |
-| cell_length_c | no | no | float | angstroms | no | yes |
-| crystal_id | yes | yes | int | None | no | no |
-| image_id | yes | yes | int | None | no | no |
-| image_number | no | no | int | None | no | no |
-| phi_value | no | yes | float | None | no | no |
-| wavelength | no | yes | float | angstroms | no | yes |
-
----
-
-#### _pdbx_diffrn_image_proc.cell_angle_alpha
-
-
-               Unit-cell angle alpha in degrees.
-
-
-
----
-
-| Minimum&nbsp;Value | Maximum&nbsp;Value |
-| ------------- | ------ |
-| 0.0 | 180.0 |
-
-
-#### _pdbx_diffrn_image_proc.cell_angle_beta
-
-
-               Unit-cell angle beta in degrees.
-
-
-
----
-
-| Minimum&nbsp;Value | Maximum&nbsp;Value |
-| ------------- | ------ |
-| 0.0 | 180.0 |
-
-
-#### _pdbx_diffrn_image_proc.cell_angle_gamma
-
-
-               Unit-cell angle gamma in degrees.
-
-
-
----
-
-| Minimum&nbsp;Value | Maximum&nbsp;Value |
-| ------------- | ------ |
-| 0.0 | 180.0 |
-
-
-#### _pdbx_diffrn_image_proc.cell_length_a
-
-
-               Unit-cell length a in angstroms.
-
-
-
----
-
-| Minimum&nbsp;Value | Maximum&nbsp;Value |
-| ------------- | ------ |
-| 0.0 | <h3>+&infin;</h3> |
-
-
-#### _pdbx_diffrn_image_proc.cell_length_b
-
-
-               Unit-cell length b reported in angstroms.
-
-
-
----
-
-| Minimum&nbsp;Value | Maximum&nbsp;Value |
-| ------------- | ------ |
-| 0.0 | <h3>+&infin;</h3> |
-
-
-#### _pdbx_diffrn_image_proc.cell_length_c
-
-
-               Unit-cell length c reported in angstroms.
-
-
-
----
-
-| Minimum&nbsp;Value | Maximum&nbsp;Value |
-| ------------- | ------ |
-| 0.0 | <h3>+&infin;</h3> |
-
-
-#### _pdbx_diffrn_image_proc.crystal_id (key)
-
-
-      The value of crystal_id uniquely identifies a crystal sample within a data section.
-
-
-
-#### _pdbx_diffrn_image_proc.image_id (key)
-
-
-      The value of image_id uniquely identifies a location (spot) on a crystal sample.
-
-
-
-#### _pdbx_diffrn_image_proc.image_number
-
-
-      The value of image_number identifies a collection of reflection measurements.
-
-
-
-#### _pdbx_diffrn_image_proc.phi_value (required)
-
-
-               The interpolation value.
-
-
-
-#### _pdbx_diffrn_image_proc.wavelength (required)
-
-
-               The radiation wavelength in angstroms.
-
-
-
----
-
-| Minimum&nbsp;Value | Maximum&nbsp;Value |
-| ------------- | ------ |
-| 0.0 | <h3>+&infin;</h3> |
 
 
 ## Category pdbx_diffrn_merged_cell
@@ -776,13 +584,12 @@
          _pdbx_diffrn_merged_refln.F_meas_sigma_au
          _pdbx_diffrn_merged_refln.F_calc_au
          _pdbx_diffrn_merged_refln.phase_calc
-         _pdbx_diffrn_merged_refln.status
          _pdbx_diffrn_merged_refln.R_free_flag
-         1    0    0    8  918.100   7.0000  2128.50   0.0000 o  1
-         2    0    0   10  450.700   5.3000  787.600  180.000 o  1
-         3    0    0   12  875.000   7.1000  851.000  180.000 o  10
-         4    0    0   14  628.700   6.4000  468.400  180.000 o  10
-         5    0    0   18  492.000   7.3000  565.200  180.000 o  5
+         1    0    0    8  918.100   7.0000  2128.50   0.0000   1
+         2    0    0   10  450.700   5.3000  787.600  180.000   1
+         3    0    0   12  875.000   7.1000  851.000  180.000   10
+         4    0    0   14  628.700   6.4000  468.400  180.000   10
+         5    0    0   18  492.000   7.3000  565.200  180.000   5
          # ...
 ```
 
@@ -967,6 +774,8 @@
                The current flags definitions are included but these should
                be reviewed and/or updated as required.
 
+               DEPRECATED CODE
+
 
 
 ---
@@ -1057,11 +866,12 @@
          loop_
          _pdbx_diffrn_merge_image_list.data_section_id
          _pdbx_diffrn_merge_image_list.crystal_id
-         _pdbx_diffrn_merge_image_list.image_id
-         'ds-unmerged-1'  1  1
-         'ds-unmerged-1'  1  2
-         'ds-unmerged-2'  1  1
-         'ds-unmerged-2'  1  2
+         _pdbx_diffrn_merge_image_list.image_id_begin
+         _pdbx_diffrn_merge_image_list.image_id_end
+         'ds-unmerged-1'  1  1    10
+         'ds-unmerged-1'  1  11  100
+         'ds-unmerged-2'  1  1   100
+         'ds-unmerged-2'  1  101 150
      
 ```
 
@@ -1072,7 +882,8 @@
 | --------- | --- | -------- | ---- | ----- | ---------- | ------- |
 | crystal_id | yes | yes | int | None | no | no |
 | data_section_id | yes | yes | code | None | no | no |
-| image_id | yes | yes | int | None | no | no |
+| image_id_begin | yes | yes | int | None | no | no |
+| image_id_end | yes | yes | int | None | no | no |
 
 ---
 
@@ -1090,10 +901,17 @@
 
 
 
-#### _pdbx_diffrn_merge_image_list.image_id (key)
+#### _pdbx_diffrn_merge_image_list.image_id_begin (key)
 
 
-      The value of image_id uniquely identifies a location (spot) on a crystal sample.
+      The initial value of a range of image_id values.
+
+
+
+#### _pdbx_diffrn_merge_image_list.image_id_end (key)
+
+
+       The initial value of a range of image_id values.
 
 
 
@@ -1113,9 +931,10 @@
          _pdbx_diffrn_merge_rejected_list.data_section_id
          _pdbx_diffrn_merge_rejected_list.reflection_id
          _pdbx_diffrn_merge_rejected_list.image_id
-         'ds-unmerged-1'  1  1
-         'ds-unmerged-1'  2  1
-         'ds-unmerged-2'  5  1
+         _pdbx_diffrn_merge_rejected_list.details
+         'ds-unmerged-1'  1  1  'intensity outlier'
+         'ds-unmerged-1'  2  1  'intensity outlier'
+         'ds-unmerged-2'  5  1  'intensity outlier'
      
      
 ```
@@ -1126,6 +945,7 @@
 | Attribute | Key | Required | Type | Units | Enumerated | Bounded |
 | --------- | --- | -------- | ---- | ----- | ---------- | ------- |
 | data_section_id | yes | yes | code | None | no | no |
+| details | no | yes | text | None | no | no |
 | image_id | yes | yes | int | None | no | no |
 | reflection_id | yes | yes | int | None | no | no |
 
@@ -1135,6 +955,13 @@
 
 
       The value of data_section_id uniquely identifies a data section.
+
+
+
+#### _pdbx_diffrn_merge_rejected_list.details (required)
+
+
+      Explanation for the rejected reflection.
 
 
 
@@ -1164,8 +991,8 @@
 ```
      
          _pdbx_diffrn_merge_stat.data_section_id               'ds-merge-1'
-         _pdbx_diffrn_merge_stat.d_resolution_high              1.32
-         _pdbx_diffrn_merge_stat.d_resolution_low               150.0
+         _pdbx_diffrn_merge_stat.d_limit_high              1.32
+         _pdbx_diffrn_merge_stat.d_limit_low               150.0
          _pdbx_diffrn_merge_stat.number_obs                     300000
          _pdbx_diffrn_merge_stat.number_all                     308123
          _pdbx_diffrn_merge_stat.mean_I_over_sigI_all           10.7
@@ -1183,8 +1010,8 @@
 | CC_half_all | no | no | float | None | no | yes |
 | data_section_id | yes | yes | code | None | no | no |
 | details | no | no | text | None | no | no |
-| d_resolution_high | no | no | float | angstroms | no | yes |
-| d_resolution_low | no | no | float | angstroms | no | yes |
+| d_limit_high | no | no | float | angstroms | no | yes |
+| d_limit_low | no | no | float | angstroms | no | yes |
 | mean_I_over_sigI_all | no | no | float | None | no | no |
 | number_all | no | no | int | None | no | yes |
 | number_obs | no | no | int | None | no | yes |
@@ -1230,7 +1057,7 @@
 
 
 
-#### _pdbx_diffrn_merge_stat.d_resolution_high
+#### _pdbx_diffrn_merge_stat.d_limit_high
 
 
                The smallest value for the interplanar spacings for
@@ -1245,7 +1072,7 @@
 | 0.0 | <h3>+&infin;</h3> |
 
 
-#### _pdbx_diffrn_merge_stat.d_resolution_low
+#### _pdbx_diffrn_merge_stat.d_limit_low
 
 
                The largest value for the interplanar spacings for the
@@ -1325,7 +1152,7 @@
 
 
                The percentage of geometrically possible reflections that satisfy
-               the resolution limits established by _pdbx_diffrn_merge_stat.d_resolution_high and _pdbx_diffrn_merge_stat.d_resolution_low and the observation limit established
+               the resolution limits established by _pdbx_diffrn_merge_stat.d_limit_high and _pdbx_diffrn_merge_stat.d_limit_low and the observation limit established
                 in creating this data set.
 
 
@@ -1341,8 +1168,8 @@
 
 
                Residual factor Rmerge for all reflections that satisfy the
-               resolution limits established by _pdbx_diffrn_merge_stat.d_resolution_high
-               and _pdbx_diffrn_merge_stat.d_resolution_low.
+               resolution limits established by _pdbx_diffrn_merge_stat.d_limit_high
+               and _pdbx_diffrn_merge_stat.d_limit_low.
 
 
 
@@ -1387,8 +1214,8 @@
 ```
      
          _pdbx_diffrn_merge_stat_shell.ordinal_id                        1
-         _pdbx_diffrn_merge_stat_shell.d_resolution_high              1.32
-         _pdbx_diffrn_merge_stat_shell.d_resolution_low               1.60
+         _pdbx_diffrn_merge_stat_shell.d_limit_high              1.32
+         _pdbx_diffrn_merge_stat_shell.d_limit_low               1.60
          _pdbx_diffrn_merge_stat_shell.number_obs                     1500
          _pdbx_diffrn_merge_stat_shell.number_all                     1530
          _pdbx_diffrn_merge_stat_shell.mean_I_over_sigI_all           10.7
@@ -1404,8 +1231,8 @@
 | Attribute | Key | Required | Type | Units | Enumerated | Bounded |
 | --------- | --- | -------- | ---- | ----- | ---------- | ------- |
 | CC_half_all | no | no | float | None | no | yes |
-| d_resolution_high | no | yes | float | angstroms | no | yes |
-| d_resolution_low | no | yes | float | angstroms | no | yes |
+| d_limit_high | no | yes | float | angstroms | no | yes |
+| d_limit_low | no | yes | float | angstroms | no | yes |
 | mean_I_over_sigI_all | no | no | float | None | no | no |
 | number_all | no | no | int | None | no | yes |
 | number_obs | no | no | int | None | no | yes |
@@ -1424,7 +1251,7 @@
 
               The Pearson's correlation coefficient expressed as a decimal value
               between the average intensities from randomly selected
-              half-sets in this resolution shell.
+              half-sets in this shell.
 
           Ref: Karplus & Diederichs (2012), Science 336, 1030-33
 
@@ -1437,7 +1264,7 @@
 | -1.0 | 1.0 |
 
 
-#### _pdbx_diffrn_merge_stat_shell.d_resolution_high (required)
+#### _pdbx_diffrn_merge_stat_shell.d_limit_high (required)
 
 
                The smallest value for the interplanar spacings for
@@ -1452,7 +1279,7 @@
 | 0.0 | <h3>+&infin;</h3> |
 
 
-#### _pdbx_diffrn_merge_stat_shell.d_resolution_low (required)
+#### _pdbx_diffrn_merge_stat_shell.d_limit_low (required)
 
 
                The largest value for the interplanar spacings for the
@@ -1539,8 +1366,9 @@
 
 
                The percentage of geometrically possible reflections that satisfy
-               the resolution limits established by _pdbx_diffrn_merge_stat_shell.d_resolution_high and _pdbx_diffrn_merge_stat_shell.d_resolution_low and the observation limit established
-                for this resolution shell.
+               the resolution limits established by _pdbx_diffrn_merge_stat_shell.d_limit_high and
+               _pdbx_diffrn_merge_stat_shell.d_limit_low and the observation limit established
+                for this shell.
 
 
 
@@ -1555,8 +1383,8 @@
 
 
                Residual factor Rmerge for all reflections that satisfy the
-               resolution limits established by _pdbx_diffrn_merge_stat_shell.d_resolution_high
-               and _pdbx_diffrn_merge_stat_shell.d_resolution_low.
+               limits established by _pdbx_diffrn_merge_stat_shell.d_limit_high
+               and _pdbx_diffrn_merge_stat_shell.d_limit_low.
 
 
 
@@ -1639,6 +1467,87 @@
 | 0.0 | <h3>+&infin;</h3> |
 
 
+## Category pdbx_diffrn_scan
+
+
+               Data items in the pdbx_diffrn_scan category record details of
+               individual scans. Each scan consists of a contiguous series of
+               images related by an axis of rotation.
+
+---
+
+
+```
+     
+         #
+          loop_
+         _pdbx_diffrn_scan.scan_id
+         _pdbx_diffrn_scan.crystal_id
+         _pdbx_diffrn_scan.image_id_begin
+         _pdbx_diffrn_scan.image_id_end
+         _pdbx_diffrn_scan.scan_angle_begin
+         _pdbx_diffrn_scan.scan_angle_end
+         1  1  1   720  0.  360.
+         2  2  1   720  0.  360.
+         # ... abbreviated ...
+```
+
+
+---
+
+| Attribute | Key | Required | Type | Units | Enumerated | Bounded |
+| --------- | --- | -------- | ---- | ----- | ---------- | ------- |
+| crystal_id | no | yes | int | None | no | no |
+| image_id_begin | no | yes | int | None | no | no |
+| image_id_end | no | yes | int | None | no | no |
+| scan_angle_begin | no | yes | float | degrees | no | no |
+| scan_angle_end | no | yes | float | degrees | no | no |
+| scan_id | yes | yes | int | None | no | no |
+
+---
+
+#### _pdbx_diffrn_scan.crystal_id (required)
+
+
+            The crystal identifier.
+
+
+
+#### _pdbx_diffrn_scan.image_id_begin (required)
+
+
+      The initial value of a range of image_id values.
+
+
+
+#### _pdbx_diffrn_scan.image_id_end (required)
+
+
+      The terminal value of a range of image_id values.
+
+
+
+#### _pdbx_diffrn_scan.scan_angle_begin (required)
+
+
+      The initial value of the scan angle value.
+
+
+
+#### _pdbx_diffrn_scan.scan_angle_end (required)
+
+
+      The terminal value of the scan angle value.
+
+
+
+#### _pdbx_diffrn_scan.scan_id (key)
+
+
+            A unique identifier for each scan.
+
+
+
 ## Category pdbx_diffrn_symmetry
 
 
@@ -1700,8 +1609,10 @@
          _pdbx_diffrn_unmerged_cell.cell_angle_alpha
          _pdbx_diffrn_unmerged_cell.cell_angle_beta
          _pdbx_diffrn_unmerged_cell.cell_angle_gamma
-         1 1 .91837  51.3940 109.0130 137.3070 90.000 90.000 90.000
-         2 2 .91837  51.3940 109.0130 137.3070 90.000 90.000 90.000
+         _pdbx_diffrn_unmerged_cell.cell_angle_gamma
+         _pdbx_diffrn_unmerged_cell.Bravais_lattice
+         1 1 .91837  51.3940 109.0130 137.3070 90.000 90.000 90.000 'oP'
+         2 2 .91837  51.3940 109.0130 137.3070 90.000 90.000 90.000 'oP'
          # ...  abbreviated ...
 ```
 
@@ -1710,6 +1621,7 @@
 
 | Attribute | Key | Required | Type | Units | Enumerated | Bounded |
 | --------- | --- | -------- | ---- | ----- | ---------- | ------- |
+| Bravais_lattice | no | no | line | None | yes | no |
 | cell_angle_alpha | no | no | float | degrees | no | yes |
 | cell_angle_beta | no | no | float | degrees | no | yes |
 | cell_angle_gamma | no | no | float | degrees | no | yes |
@@ -1722,6 +1634,37 @@
 | wavelength | no | yes | float | angstroms | no | yes |
 
 ---
+
+#### _pdbx_diffrn_unmerged_cell.Bravais_lattice
+
+
+               The Bravais lattice.
+
+One of the Bravais lattice types defined in International Tables for Crystallography (2006). Vol. A, Table 9.2.5.1, p. 753
+using the 2-letter symbols.
+
+
+
+
+---
+
+| Allowed Values | Detail |
+| -------------- | ------ |
+| aP |   |
+| cF |   |
+| cI |   |
+| cP |   |
+| hP |   |
+| hR |   |
+| mC |   |
+| mI |   |
+| oC |   |
+| oF |   |
+| oI |   |
+| oP |   |
+| tI |   |
+| tP |   |
+
 
 #### _pdbx_diffrn_unmerged_cell.cell_angle_alpha
 
@@ -1875,13 +1818,15 @@
          _pdbx_diffrn_unmerged_refln.reflection_id
          _pdbx_diffrn_unmerged_refln.image_id_begin
          _pdbx_diffrn_unmerged_refln.image_id_end
+         _pdbx_diffrn_unmerged_refln.scan_id
          _pdbx_diffrn_unmerged_refln.index_h
          _pdbx_diffrn_unmerged_refln.index_k
          _pdbx_diffrn_unmerged_refln.index_l
-         _pdbx_diffrn_unmerged_refln.intensity_meas
-         _pdbx_diffrn_unmerged_refln.intensity_sigma
-         _pdbx_diffrn_unmerged_refln.phi_reflection
-         1  1  1    0    0    5     28.800  264.700  .500
+         _pdbx_diffrn_unmerged_refln.intensity_sum
+         _pdbx_diffrn_unmerged_refln.intensity_sum_sigma
+         _pdbx_diffrn_unmerged_refln.scan_angle_reflection
+         _pdbx_diffrn_unmerged_refln.scale_value
+         1  1  2  1   0    0    5     28.800  264.700  3.51 0.90
          # ... abbreviated ...
 ```
 
@@ -1902,8 +1847,10 @@
 | intensity_sum | no | no | float | None | no | no |
 | intensity_sum_sigma | no | no | float | None | no | no |
 | partiality | no | no | float | None | no | yes |
-| phi_reflection | no | no | float | None | no | no |
 | reflection_id | yes | yes | int | None | no | no |
+| scale_value | no | no | float | None | no | yes |
+| scan_angle_reflection | no | no | float | None | no | no |
+| scan_id | no | yes | int | None | no | no |
 
 ---
 
@@ -2007,16 +1954,37 @@
 | 0.0 | 1.0 |
 
 
-#### _pdbx_diffrn_unmerged_refln.phi_reflection
-
-
-               The phi value for the reflection.
-
-
-
 #### _pdbx_diffrn_unmerged_refln.reflection_id (key)
 
 
             A unique identifier for each reflection.
+
+
+
+#### _pdbx_diffrn_unmerged_refln.scale_value
+
+
+               The scale value applied to this reflection.
+
+
+
+---
+
+| Minimum&nbsp;Value | Maximum&nbsp;Value |
+| ------------- | ------ |
+| 0.0 | <h3>+&infin;</h3> |
+
+
+#### _pdbx_diffrn_unmerged_refln.scan_angle_reflection
+
+
+               The predicted centroid position of the scan angle for the reflection.
+
+
+
+#### _pdbx_diffrn_unmerged_refln.scan_id (required)
+
+
+            A unique identifier for a scan.
 
 
