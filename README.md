@@ -7,7 +7,7 @@ describing diffraction data sets.
 
 - [Diffraction Data Set Extension Dictionary (markup)](diffrn-data-set-extension-v2.md)
 
-- [Dials example file (latest)](dials-example-integrated-20170716.cif)
+- [Dials example file (latest)](dials-example-integrated-20170718.cif)
 
 - [Abbreviated example file (latest)](draft-diffrn-data-set-example-20170717.cif)
 
