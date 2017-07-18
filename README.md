@@ -9,6 +9,6 @@ describing diffraction data sets.
 
 - [Dials example file (latest)](dials-example-integrated-20170716.cif)
 
-- [Abbreviated example file](draft-diffrn-data-set-example-20170712.cif)
+- [Abbreviated example file](draft-diffrn-data-set-example-20170717.cif)
 
 
