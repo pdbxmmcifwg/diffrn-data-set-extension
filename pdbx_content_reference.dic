@@ -1,0 +1,102 @@
+##########################
+# PDBX_CONTENT_REFERENCE #
+##########################
+
+save_pdbx_content_reference
+    _category.description
+;              Data items in the pdbx_content_reference category record
+               reference details for the remote datablock containing the
+               parent data item related to a local child data item.
+               The reference includes the datablock name and optionally
+               the data file locator for parent data item of the local
+               child data item.
+;
+    _category.id                  pdbx_content_reference
+    _category.mandatory_code      no
+    _category_key.name          '_pdbx_content_reference.child_item_name'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'database_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - reference to a parent crystal identifier in the structure model file.
+;
+;
+     loop_
+     _pdbx_content_reference.child_item_name
+     _pdbx_content_reference.reference_datablock_id
+     _pdbx_content_reference.reference_datablock_locator
+     '_refln.crystal_id'       1KIP   'https://ftp.wwpdb.org/pub/pdb/data/structures/divided/mmCIF/ki/1kip.cif.gz'
+;
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+ Example 2 - hypothetical reference to a parent diffraction data in the processed experimental
+             data file.
+;
+;
+    loop_
+     _pdbx_content_reference.child_item_name
+     _pdbx_content_reference.reference_datablock_id
+     _pdbx_content_reference.reference_datablock_locator
+     '_refine.pdbx_diffrn_id' r1abcsf  'https://ftp.wwpdb.org/pub/pdb/data/structures/divided/structure_factors/ab/r1abcsf.ent.gz'
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     save_
+
+save__pdbx_content_reference.child_item_name
+    _item_description.description
+;              The child item name referencing a remote parent data item.
+;
+    _item.name               '_pdbx_content_reference.child_item_name'
+    _item.category_id         pdbx_content_reference
+    _item.mandatory_code      yes
+    _item_type.code           name
+    loop_
+     _item_examples.case
+     '_refine.pdbx_diffrn_id'
+     '_refln.crystal_id'
+     save_
+
+save__pdbx_content_reference.reference_datablock_id
+    _item_description.description
+;    Identifier for the remote datablock.
+;
+    _item.name                  '_pdbx_content_reference.reference_datablock_id'
+    _item.category_id             pdbx_content_reference
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_examples.case
+    _item_examples.detail
+      '1ABC'    'PDB structure model datablock identifier'
+       r1abcsf  'PDB processed experimental data datablock identifer'
+     save_
+
+save__pdbx_content_reference.reference_datablock_locator
+    _item_description.description
+;    This data item is a locator for the file containing the remote datablock.
+     The expression of the locator should follow the semantics of the
+      Uniform Resource Locators (URL) (RFC 1738)
+
+     If this item is not provided, the remote datablock will be resolved in
+     the current data file.
+
+     This data item will be reset by the wwPDB when data files are released
+     into the PDB repository.
+;
+    _item.name                  '_pdbx_content_reference.entity_id'
+    _item.category_id             pdbx_content_reference
+    _item.mandatory_code          no
+    _item_type.code               text
+    loop_
+      _item_examples.case
+      _item_examples.detail
+      'https://ftp.wwpdb.org/pub/pdb/data/structures/divided/mmCIF/ki/1kip.cif.gz'    'PDB structure model locator'
+      'https://ftp.wwpdb.org/pub/pdb/data/structures/divided/structure_factors/ab/r1abcsf.ent.gz' 'PDB processed experimental data locator'
+      'file:///local_file.cif' 'Example of a local file reference'
+      'file:///home/username/data/local_file.cif' 'Example of a local file reference including an absolute path'
+     save_
+

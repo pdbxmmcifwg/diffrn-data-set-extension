@@ -11,4 +11,5 @@ describing diffraction data sets.
 
 - [Abbreviated example file (latest)](draft-diffrn-data-set-example-20170717.cif)
 
+- [Remote Datablock Content Reference Extension Dictionary (text)](pdbx_content_reference.dic)
 
