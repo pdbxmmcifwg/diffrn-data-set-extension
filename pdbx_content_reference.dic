@@ -13,7 +13,9 @@ save_pdbx_content_reference
 ;
     _category.id                  pdbx_content_reference
     _category.mandatory_code      no
+    loop_
     _category_key.name          '_pdbx_content_reference.child_item_name'
+                                '_pdbx_content_reference.reference_datablock_id'
      loop_
     _category_group.id           'inclusive_group'
                                  'database_group'
@@ -44,6 +46,21 @@ save_pdbx_content_reference
      '_refine.pdbx_diffrn_id' r1abcsf  'https://ftp.wwpdb.org/pub/pdb/data/structures/divided/structure_factors/ab/r1abcsf.ent.gz'
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+ Example 2 - references to multiple diffraction data sets residing different data blocks
+             in the a single processed experimental data file.
+;
+;
+    loop_
+     _pdbx_content_reference.child_item_name
+     _pdbx_content_reference.child_item_value
+     _pdbx_content_reference.reference_datablock_id
+     _pdbx_content_reference.reference_datablock_locator
+     '_refine.pdbx_diffrn_id' 1   r3kclcsf  'https://ftp.wwpdb.org/pub/pdb/data/structures/divided/structure_factors/ab/r3kclsf.ent.gz'
+     '_refine.pdbx_diffrn_id' 2   r3kclAsf  'https://ftp.wwpdb.org/pub/pdb/data/structures/divided/structure_factors/ab/r3kclsf.ent.gz'
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
      save_
 
 save__pdbx_content_reference.child_item_name
@@ -58,6 +75,20 @@ save__pdbx_content_reference.child_item_name
      _item_examples.case
      '_refine.pdbx_diffrn_id'
      '_refln.crystal_id'
+     save_
+
+save__pdbx_content_reference.child_item_value
+    _item_description.description
+;              The optional child item value referencing a remote parent data item.
+;
+    _item.name               '_pdbx_content_reference.child_item_value'
+    _item.category_id         pdbx_content_reference
+    _item.mandatory_code      no
+    _item_type.code           text
+    loop_
+     _item_examples.case
+      1
+      'x-ray'
      save_
 
 save__pdbx_content_reference.reference_datablock_id
