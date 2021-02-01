@@ -47,7 +47,7 @@ save_pdbx_content_reference
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ;
- Example 2 - references to multiple diffraction data sets residing different data blocks
+ Example 3 - references to multiple diffraction data sets residing different data blocks
              in the a single processed experimental data file.
 ;
 ;
